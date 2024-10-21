@@ -1,0 +1,177 @@
+{
+    "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.59\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"allowInlineExploration\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"creationSource\":\"QuickCreate\"}",
+    "layoutOptimization": 0,
+    "resourcePackages": [
+        {
+            "resourcePackage": {
+                "disabled": false,
+                "items": [
+                    {
+                        "name": "CY24SU10",
+                        "path": "BaseThemes/CY24SU10.json",
+                        "type": 202
+                    }
+                ],
+                "name": "SharedResources",
+                "type": 2
+            }
+        }
+    ],
+    "sections": [
+        {
+            "config": "{\"relationships\":[{\"source\":\"c6462e223e664081b6c5\",\"target\":\"542c7317e069e00ebb86\",\"type\":1},{\"source\":\"c6462e223e664081b6c5\",\"target\":\"f3be2f5221b74b45bc36\",\"type\":3}]}",
+            "displayName": "Page 1",
+            "displayOption": 1,
+            "filters": "[]",
+            "height": 720.0,
+            "name": "9d5377959ea7b089a574",
+            "visualContainers": [
+                {
+                    "config": "{\"name\":\"0e0f371c56889acb29ac\",\"layouts\":[{\"id\":0,\"position\":{\"x\":317.51608042811864,\"y\":93.63744999220658,\"z\":7000,\"width\":310.7060840650491,\"height\":30.644983633813062,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"AVAILABLE APIS\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"DIN\"}}]}]}}]}}}",
+                    "filters": "[]",
+                    "height": 30.64,
+                    "width": 310.71,
+                    "x": 317.52,
+                    "y": 93.64,
+                    "z": 7000.0
+                },
+                {
+                    "config": "{\"name\":\"0f3c46a484b895020420\",\"layouts\":[{\"id\":0,\"position\":{\"x\":310.7060840650491,\"y\":124.28243362601964,\"z\":6000,\"width\":589.0646854055177,\"height\":572.0396944978438,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Fabric REST APIs.Service hierarchy.Service\"},{\"queryRef\":\"Fabric REST APIs.Service hierarchy.API\"},{\"queryRef\":\"Fabric REST APIs.Service hierarchy.Title\"},{\"queryRef\":\"Fabric REST APIs.Article Url\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fabric REST APIs\",\"Type\":0}],\"Select\":[{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Hierarchy\":\"Service hierarchy\"}},\"Level\":\"Service\"},\"Name\":\"Fabric REST APIs.Service hierarchy.Service\",\"NativeReferenceName\":\"Service hierarchy Service\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Hierarchy\":\"Service hierarchy\"}},\"Level\":\"API\"},\"Name\":\"Fabric REST APIs.Service hierarchy.API\",\"NativeReferenceName\":\"Service hierarchy API\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Hierarchy\":\"Service hierarchy\"}},\"Level\":\"Title\"},\"Name\":\"Fabric REST APIs.Service hierarchy.Title\",\"NativeReferenceName\":\"Service hierarchy Title\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Article Url\"},\"Name\":\"Fabric REST APIs.Article Url\",\"NativeReferenceName\":\"Article Url\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Hierarchy\":\"Service hierarchy\"}},\"Level\":\"Service\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"values\":[{\"properties\":{\"urlIcon\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"columnHeaders\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}},\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"wordWrap\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"autoSizeColumnWidth\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"total\":[{\"properties\":{\"totals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"grid\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}},\"rowPadding\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}],\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"77.4442697838622D\"}}}},\"selector\":{\"metadata\":\"Fabric REST APIs.Article Url\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"214.5047092272248D\"}}}},\"selector\":{\"metadata\":\"Fabric REST APIs.Service hierarchy.Title\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"123D\"}}}},\"selector\":{\"metadata\":\"Fabric REST APIs.Service hierarchy.Service\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"153.01056367535344D\"}}}},\"selector\":{\"metadata\":\"Fabric REST APIs.Service hierarchy.API\"}}]},\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'AlternatingRowsNew'\"}}}}}],\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+                    "filters": "[{\"name\":\"b433e87c95857882b2ca\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fabric REST APIs\"}},\"Property\":\"Supported identity count\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fabric REST APIs\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Supported identity count\"}},\"Right\":{\"Literal\":{\"Value\":\"0L\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1}]",
+                    "height": 572.04,
+                    "width": 589.06,
+                    "x": 310.71,
+                    "y": 124.28,
+                    "z": 6000.0
+                },
+                {
+                    "config": "{\"name\":\"3af711c64a3b87068180\",\"layouts\":[{\"id\":0,\"position\":{\"x\":915.0932612874734,\"y\":240.90362134358602,\"z\":3000,\"width\":353.2685613342339,\"height\":467.3360004156492,\"tabOrder\":-3001}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"4M\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#E6E6E6'\"}}}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"preset\":{\"expr\":{\"Literal\":{\"Value\":\"'Custom'\"}}},\"shadowBlur\":{\"expr\":{\"Literal\":{\"Value\":\"3M\"}}},\"shadowDistance\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"shadowSpread\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"87M\"}}}}}]}}}",
+                    "filters": "[]",
+                    "height": 467.34,
+                    "width": 353.27,
+                    "x": 915.09,
+                    "y": 240.9,
+                    "z": 3000.0
+                },
+                {
+                    "config": "{\"name\":\"41d0d8bbac55d420830a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12.007328691828508,\"y\":130.0793941614755,\"z\":15000,\"width\":264.1612312202272,\"height\":566.345669964578,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Fabric REST APIs.Service hierarchy.Service\",\"active\":true},{\"queryRef\":\"Fabric REST APIs.Service hierarchy.API\"},{\"queryRef\":\"Fabric REST APIs.Service hierarchy.Title\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fabric REST APIs\",\"Type\":0}],\"Select\":[{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Hierarchy\":\"Service hierarchy\"}},\"Level\":\"Service\"},\"Name\":\"Fabric REST APIs.Service hierarchy.Service\",\"NativeReferenceName\":\"Service hierarchy Service\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Hierarchy\":\"Service hierarchy\"}},\"Level\":\"API\"},\"Name\":\"Fabric REST APIs.Service hierarchy.API\",\"NativeReferenceName\":\"Service hierarchy API\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Hierarchy\":\"Service hierarchy\"}},\"Level\":\"Title\"},\"Name\":\"Fabric REST APIs.Service hierarchy.Title\",\"NativeReferenceName\":\"Service hierarchy Title\"}]},\"expansionStates\":[{\"roles\":[\"Values\"],\"levels\":[{\"queryRefs\":[\"Fabric REST APIs.Service hierarchy.Service\"],\"isCollapsed\":true,\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fabric REST APIs\"}},\"Property\":\"Service\"}}],\"isPinned\":true},{\"queryRefs\":[\"Fabric REST APIs.Service hierarchy.API\"],\"isCollapsed\":true,\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fabric REST APIs\"}},\"Property\":\"API\"}}],\"isPinned\":true},{\"queryRefs\":[\"Fabric REST APIs.Service hierarchy.Title\"],\"isCollapsed\":true,\"isPinned\":true}],\"root\":{\"identityValues\":null,\"children\":[{\"identityValues\":[{\"Literal\":{\"Value\":\"'Lakehouse'\"}}],\"children\":[{\"identityValues\":[{\"Literal\":{\"Value\":\"'Background Jobs'\"}}],\"isToggled\":true},{\"identityValues\":[{\"Literal\":{\"Value\":\"'Tables'\"}}],\"isToggled\":true},{\"identityValues\":[{\"Literal\":{\"Value\":\"'Items'\"}}],\"isToggled\":true}]},{\"identityValues\":[{\"Literal\":{\"Value\":\"'DataPipeline'\"}}],\"children\":[{\"identityValues\":[{\"Literal\":{\"Value\":\"'Items'\"}}],\"isToggled\":true}]}]}}],\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"header\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'SELECT API'\"}}},\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"items\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}},\"padding\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+                    "filters": "[]",
+                    "height": 566.35,
+                    "width": 264.16,
+                    "x": 12.01,
+                    "y": 130.08,
+                    "z": 15000.0
+                },
+                {
+                    "config": "{\"name\":\"43f1e9dd25c3781c708d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":927.0107549228451,\"y\":250.26736634280667,\"z\":13000,\"width\":331.9873226996415,\"height\":446.0547617810568,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"This report exposes all Fabric REST APIs and can be used to find endpoints which supports a specific identity.\",\"textStyle\":{\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"The report supports filtering the following identities:\",\"textStyle\":{\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}]},{\"textRuns\":[{\"value\":\"Managed identities\",\"textStyle\":{\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}],\"listType\":\"bullet\"},{\"textRuns\":[{\"value\":\"Service principal\",\"textStyle\":{\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}],\"listType\":\"bullet\"},{\"textRuns\":[{\"value\":\"User\",\"textStyle\":{\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}],\"listType\":\"bullet\"},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"Icons\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}]},{\"textRuns\":[{\"value\":\"Green icon: Identity/identities are all supported\",\"textStyle\":{\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}],\"listType\":\"bullet\"},{\"textRuns\":[{\"value\":\"Yellow icon: Multiple APIs selected. Some are supported\",\"textStyle\":{\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}],\"listType\":\"bullet\"},{\"textRuns\":[{\"value\":\"Red icon: Non of the selected APIs support the identity\",\"textStyle\":{\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}],\"listType\":\"bullet\"},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"Use the Article URL in the list of available APIs to view the related documentation.\",\"textStyle\":{\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"This report and the underlying semantic model have auto-generated using Semantic Link Labs.\",\"textStyle\":{\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"The development is done by Peer Gr\u00f8nnerup. \",\"textStyle\":{\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"Reference links\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontStyle\":\"italic\",\"fontSize\":\"9pt\"}}]},{\"textRuns\":[{\"value\":\"Semantic Link Labs on Github\",\"textStyle\":{},\"url\":\"https://github.com/microsoft/semantic-link-labs\"}],\"listType\":\"bullet\"},{\"textRuns\":[{\"value\":\"Peer Insights - Fabric blog\",\"textStyle\":{},\"url\":\"https://peerinsights.hashnode.dev/\"}],\"listType\":\"bullet\"},{\"textRuns\":[{\"value\":\"Sample code on GitHub\",\"textStyle\":{},\"url\":\"https://github.com/gronnerup/Fabric/tree/main/FabricRestApiDocs\"},{\"value\":\" \"}],\"listType\":\"bullet\"}]}}]}}}",
+                    "filters": "[]",
+                    "height": 446.05,
+                    "width": 331.99,
+                    "x": 927.01,
+                    "y": 250.27,
+                    "z": 13000.0
+                },
+                {
+                    "config": "{\"name\":\"47841ab5250d758e5d44\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12,\"y\":58,\"height\":26,\"width\":1256,\"tabOrder\":-1,\"z\":0}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"outline\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}}},\"selector\":{\"id\":\"default\"}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+                    "filters": "[]",
+                    "height": 26.0,
+                    "width": 1256.0,
+                    "x": 12.0,
+                    "y": 58.0,
+                    "z": 0.0
+                },
+                {
+                    "config": "{\"name\":\"4bd9c88c797c70609e07\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12.035970596649213,\"y\":2.2925658279331835,\"z\":5000,\"width\":305.48439657209667,\"height\":39.54676053184741,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"MICROSOFT FABRIC\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"16pt\"}}]}]}}]},\"vcObjects\":{}}}",
+                    "filters": "[]",
+                    "height": 39.55,
+                    "width": 305.48,
+                    "x": 12.04,
+                    "y": 2.29,
+                    "z": 5000.0
+                },
+                {
+                    "config": "{\"name\":\"4fd4210e4328a210da99\",\"layouts\":[{\"id\":0,\"position\":{\"x\":300.49108952044475,\"y\":84.27370499298593,\"z\":1000,\"width\":599.279679950122,\"height\":623.1146672208656,\"tabOrder\":-1001}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"4M\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#E6E6E6'\"}}}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"preset\":{\"expr\":{\"Literal\":{\"Value\":\"'Custom'\"}}},\"shadowBlur\":{\"expr\":{\"Literal\":{\"Value\":\"3M\"}}},\"shadowDistance\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"shadowSpread\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"87M\"}}}}}]}}}",
+                    "filters": "[]",
+                    "height": 623.11,
+                    "width": 599.28,
+                    "x": 300.49,
+                    "y": 84.27,
+                    "z": 1000.0
+                },
+                {
+                    "config": "{\"name\":\"542c7317e069e00ebb86\",\"layouts\":[{\"id\":0,\"position\":{\"x\":915.0932612874734,\"y\":116.62118771756637,\"z\":12000,\"width\":351.5660622434665,\"height\":24.686236816127188,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+                    "filters": "[]",
+                    "height": 24.69,
+                    "width": 351.57,
+                    "x": 915.09,
+                    "y": 116.62,
+                    "z": 12000.0
+                },
+                {
+                    "config": "{\"name\":\"6392ff9d41eebead224c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":915.0932612874734,\"y\":84.27370499298593,\"z\":2000,\"width\":352.4173117888502,\"height\":141.30742453369356,\"tabOrder\":-2001}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"4M\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#E6E6E6'\"}}}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"preset\":{\"expr\":{\"Literal\":{\"Value\":\"'Custom'\"}}},\"shadowBlur\":{\"expr\":{\"Literal\":{\"Value\":\"3M\"}}},\"shadowDistance\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"shadowSpread\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"87M\"}}}}}]}}}",
+                    "filters": "[]",
+                    "height": 141.31,
+                    "width": 352.42,
+                    "x": 915.09,
+                    "y": 84.27,
+                    "z": 2000.0
+                },
+                {
+                    "config": "{\"name\":\"83ae1bd7b965200cc040\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12.007328691828508,\"y\":84.05130084279956,\"z\":14000,\"width\":273.1667277390986,\"height\":624.3810919750824,\"tabOrder\":-4001}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"4M\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#E6E6E6'\"}}}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"preset\":{\"expr\":{\"Literal\":{\"Value\":\"'Custom'\"}}},\"shadowBlur\":{\"expr\":{\"Literal\":{\"Value\":\"3M\"}}},\"shadowDistance\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"shadowSpread\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"87M\"}}}}}]}}}",
+                    "filters": "[]",
+                    "height": 624.38,
+                    "width": 273.17,
+                    "x": 12.01,
+                    "y": 84.05,
+                    "z": 14000.0
+                },
+                {
+                    "config": "{\"name\":\"9d5c771737ea9e2003a2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12.035970596649213,\"y\":33.24220450503116,\"z\":4000,\"width\":305.48439657209667,\"height\":31.52278013408127,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"REST API Identity support\"}]}]}}]},\"vcObjects\":{}}}",
+                    "filters": "[]",
+                    "height": 31.52,
+                    "width": 305.48,
+                    "x": 12.04,
+                    "y": 33.24,
+                    "z": 4000.0
+                },
+                {
+                    "config": "{\"name\":\"c6462e223e664081b6c5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":828.2658076583364,\"y\":26.38873590689458,\"z\":9000,\"width\":452.01350859874265,\"height\":44.2649763599522,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Supported Identities.Identity\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Supported Identities\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Identity\"},\"Name\":\"Supported Identities.Identity\",\"NativeReferenceName\":\"Identity\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"items\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#29A891'\"}}}}},\"outlineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"padding\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#09544F'\"}}}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+                    "filters": "[]",
+                    "height": 44.26,
+                    "width": 452.01,
+                    "x": 828.27,
+                    "y": 26.39,
+                    "z": 9000.0
+                },
+                {
+                    "config": "{\"name\":\"d69337f1d05ed2d79dbb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":21.281238634592405,\"y\":93.63744999220658,\"z\":8000,\"width\":169.39865953135555,\"height\":30.644983633813062,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"SELECT SERVICE/API\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"DIN\"}}]}]}}]}}}",
+                    "filters": "[]",
+                    "height": 30.64,
+                    "width": 169.4,
+                    "x": 21.28,
+                    "y": 93.64,
+                    "z": 8000.0
+                },
+                {
+                    "config": "{\"name\":\"ddd887f1820e95a43a02\",\"layouts\":[{\"id\":0,\"position\":{\"x\":927.0107549228451,\"y\":93.63744999220658,\"z\":11000,\"width\":220.4736322543773,\"height\":30.644983633813062,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"IDENTITY SUPPORT\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"DIN\"}}]}]}}]}}}",
+                    "filters": "[]",
+                    "height": 30.64,
+                    "width": 220.47,
+                    "x": 927.01,
+                    "y": 93.64,
+                    "z": 11000.0
+                },
+                {
+                    "config": "{\"name\":\"f3be2f5221b74b45bc36\",\"layouts\":[{\"id\":0,\"position\":{\"x\":921.0520081051593,\"y\":103.00119499142724,\"z\":10000,\"width\":345.60731542578066,\"height\":114.06743908141529,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Supported Identities.Identity\"},{\"queryRef\":\"Min(Supported Identities.Identity Support Article Url)\"},{\"queryRef\":\"Supported Identities.Identity is supported\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Supported Identities\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Identity Support Article Url\"}},\"Function\":3},\"Name\":\"Min(Supported Identities.Identity Support Article Url)\",\"NativeReferenceName\":\"Article Url\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Identity\"},\"Name\":\"Supported Identities.Identity\",\"NativeReferenceName\":\"Identity\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Identity is supported\"},\"Name\":\"Supported Identities.Identity is supported\",\"NativeReferenceName\":\"Supported\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Identity is supported\"}}}]},\"columnProperties\":{\"Min(Supported Identities.Identity Support Article Url)\":{\"formatString\":\"G\",\"displayName\":\"Article Url\"},\"Supported Identities.Identity is supported\":{\"displayName\":\"Supported\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"values\":[{\"properties\":{\"urlIcon\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"columnHeaders\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"total\":[{\"properties\":{\"totals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"columnFormatting\":[{\"properties\":{\"styleHeader\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"styleValues\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"metadata\":\"Supported Identities.Identity\"}},{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Right'\"}}}},\"selector\":{\"metadata\":\"Supported Identities.Identity is supported\"}}],\"grid\":[{\"properties\":{\"gridHorizontalWeight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"gridHorizontal\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"rowPadding\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}],\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"159.03567332063506D\"}}}},\"selector\":{\"metadata\":\"Supported Identities.Identity\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"105.2662441346695D\"}}}},\"selector\":{\"metadata\":\"Supported Identities.Identity is supported\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"61.405307803224176D\"}}}},\"selector\":{\"metadata\":\"Min(Supported Identities.Identity Support Article Url)\"}}]}}}",
+                    "filters": "[]",
+                    "height": 114.07,
+                    "width": 345.61,
+                    "x": 921.05,
+                    "y": 103.0,
+                    "z": 10000.0
+                }
+            ],
+            "width": 1280.0
+        }
+    ]
+}
