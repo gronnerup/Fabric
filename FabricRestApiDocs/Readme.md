@@ -40,4 +40,4 @@ Stay tuned for more articles and samples on automating your Microsoft Fabric Lak
 
 ## License
 
-This repository is licensed under the MIT License. See [LICENSE](LICENSE) for more details.
+This repository is licensed under the MIT License.
