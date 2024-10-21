@@ -28,7 +28,7 @@ To run these samples, you will need:
 
 1. **Extract Identity Support Data**: The first notebook, `01-Load Fabric REST API docs.ipynb`, demonstrates how to scrape the Microsoft Fabric REST API documentation to retrieve identity support data for each API endpoint.
 2. **Create a Semantic Model**: The second notebook, `02-Build Fabric Docs Semantic Model & PBI Report.ipynb`, shows how to create a blank semantic model using Semantic Link Labs and how to add tables, measures, and hierarchies to expose the scraped data. This notebook also generates the report.
-3. **Generate a Report**: Use the report.json file to create a new report using the semantic model. This will allow you to analyze the data directly in Microsoft Fabric.
+3. **Generate a Report**: Use the report.json file to create a new report using the semantic model. This will allow you to analyze the data directly in Power BI.
 
 ## Blog Post
 
