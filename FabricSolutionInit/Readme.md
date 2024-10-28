@@ -8,12 +8,6 @@ The `FabricSolutionInit` project is designed to help you kickstart your Fabric D
 
 For a detailed walkthrough of the automation process, check out my blog post: [Automating Fabric: Kickstart Your Fabric Data Platform Setup](https://peerinsights.hashnode.dev/automating-fabric-kickstart-your-fabric-data-platform-setup).
 
-## Features
-
-- **Automated Initialization**: Streamlined processes to set up your Fabric environment.
-- **Configurable Templates**: Easy to customize templates for different use cases.
-- **Best Practices**: Implementation of best practices for managing and deploying your Fabric solutions.
-
 ## Getting Started
 
 1. Clone this repository:
