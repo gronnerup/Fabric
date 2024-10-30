@@ -52,7 +52,16 @@ fabric_environments = {
 fabric_stages = {
         "Data": { "lakehouses": ["Bronze", "Silver", "Gold"] },
         "Ingest": { },
-        "Prepare": { },
+        "Prepare": { 
+            "private_endpoints" : 
+            [
+                    {
+                        "name": "mpe-kv-peerinsights-dev", 
+                        "auto_approve": True,
+                        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-peerinsights-dev/providers/Microsoft.KeyVault/vaults/kv-peerinsights-dev"
+                    },
+            ] 
+        },
         "Serve": { }
     }
 
