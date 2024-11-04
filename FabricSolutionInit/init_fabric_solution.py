@@ -125,6 +125,14 @@ for environment, env_props in fabric_environments.items():
         if not stage_props.get("lakehouses") is None:
             for lakehouse in stage_props.get("lakehouses"):
                 fabfunc.create_fabric_item(fabric_access_token, workspace_id, lakehouse, "Lakehouse", None)
+
+        if not stage_props.get("private_endpoints") is None:
+            for private_endpoint in stage_props.get("private_endpoints"):
+                fabfunc.create_workspace_managed_private_endpoint(fabric_access_token, workspace_id, private_endpoint.get("name"), private_endpoint.get("id"))
+                if(private_endpoint.get("auto_approve")):
+                    connection_name = f"{workspace_id}.{private_endpoint.get("name")}-conn"
+                    management_access_token = fabfunc.get_access_token(tenant_id, app_id, app_secret, 'https://management.core.windows.net')
+                    fabfunc.approve_private_endpoint(management_access_token, private_endpoint.get("id"), connection_name)    
             
     print ("")
 
