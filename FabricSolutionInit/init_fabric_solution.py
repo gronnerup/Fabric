@@ -50,7 +50,7 @@ fabric_environments = {
 
 #region Fabric Workspaces stages
 fabric_stages = {
-        "Data": { "lakehouses": ["Bronze", "Silver", "Gold"] },
+        "Data": { "lakehouses": ["Bronze", "Silver", "Gold"], "schema": True },
         "Ingest": { },
         "Prepare": { 
             "private_endpoints" : 
@@ -124,7 +124,7 @@ for environment, env_props in fabric_environments.items():
 
         if not stage_props.get("lakehouses") is None:
             for lakehouse in stage_props.get("lakehouses"):
-                fabfunc.create_fabric_item(fabric_access_token, workspace_id, lakehouse, "Lakehouse", None)
+                fabfunc.create_fabric_item(fabric_access_token, workspace_id, lakehouse, "Lakehouse", None, stage_props.get("schema"))
 
         if not stage_props.get("private_endpoints") is None:
             for private_endpoint in stage_props.get("private_endpoints"):
