@@ -244,7 +244,7 @@ def delete_workspace(access_token, workspace_id):
         print(f"Failed to remove workspace ({workspace_id}): {error_details}")
 
 
-def create_fabric_item(access_token, workspace_id, item_name, item_type, definition_base64):
+def create_fabric_item(access_token, workspace_id, item_name, item_type, definition_base64, enable_schema):
     """
     Creates a new item in a specified Microsoft Fabric workspace.
 
@@ -261,6 +261,10 @@ def create_fabric_item(access_token, workspace_id, item_name, item_type, definit
     definition_base64 : str or None
         A base64-encoded string containing the item's definition, if required. 
         If None, the definition is not included in the request.
+    enable_schema : bool, optional
+        Indicates whether the lakehouse should be schema-enabled.
+        This parameter is only used when item_type is "Lakehouse".
+        
 
     Returns:
     -------
@@ -277,6 +281,11 @@ def create_fabric_item(access_token, workspace_id, item_name, item_type, definit
         "displayName": item_name,
         "type": item_type,
     }
+
+    if item_type == "Lakehouse":
+        if enable_schema is True:
+            body["creationPayload"] = {"enableSchemas": True}
+
     
     if not definition_base64 is None:
         item_path = ""
