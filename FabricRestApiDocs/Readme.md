@@ -12,7 +12,7 @@ In this project, you'll learn how to:
 ## Prerequisites
 
 To run these samples, you will need:
-- Access to **Microsoft Fabric** and a **Lakehouse** in Fabric.
+- Access to **Microsoft Fabric** and a **Lakehouse** in Fabric. The lakehouse is automatically created during step 3 of the setup process as listed below.
 - A workspace assigned to **Fabric capacity**.
 - **PySpark** and **BeautifulSoup** for web scraping.
 - **Semantic Link Labs** for creating the semantic model.
@@ -20,9 +20,8 @@ To run these samples, you will need:
 ## Setup
 
 1. **Create a New Workspace**: Start by creating a new workspace in Microsoft Fabric and assign it to a Fabric capacity.
-2. **Create a Lakehouse**: In the workspace, create a new Lakehouse where you will store the report.json file and run the notebooks.
-3. **Upload Resources**: Upload the provided `report.json` file to the **Unmanaged Files** section of your Lakehouse.
-4. **Run the Notebooks**: Import the notebooks from directory and run them to extract API documentation data, create the semantic model, and generate the report.
+2. **Import Notebook Resources**: Import the notebooks from directory into you Fabric workspace.
+3. **Run the Notebooks**: Run the notebooks to create a lakehouse, import report.json file, extract API documentation data, create the semantic model, and generate the report.
 
 ## How to Use
 
