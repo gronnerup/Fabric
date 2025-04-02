@@ -1,0 +1,31 @@
+{
+    "feature_name" : "*{feature_name} - {layer_name}",
+    "capacity_id": "00000000-0000-0000-0000-000000000000",
+    "git_integration": { 
+            "devops_organization": "YourDevOpsOrg",
+            "devops_project": "YourDevOpsProject",
+            "devops_repo": "YourDevOpsRepo",
+            "devops_branch": "main"            
+        },
+    "permissions": {
+        "Admin": [
+            {"type": "Group", "id": "00000000-0000-0000-0000-000000000000"}
+        ]
+    },
+    "layers" : {
+        "Prepare": { 
+            "spark_settings": {
+                "pool":{
+                    "starterPool":{
+                        "maxNodeCount":1,
+                        "maxExecutors":1
+                    }
+                }
+            },
+            "git_folder": "solution/prepare"
+        },
+        "Ingest": { 
+            "git_folder": "solution/ingest"
+        }
+    }
+}

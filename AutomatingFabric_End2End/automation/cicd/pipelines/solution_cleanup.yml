@@ -1,0 +1,52 @@
+pr: none
+trigger: none
+
+parameters:
+  - name: Environments
+    displayName: Environments
+    type: string
+    default: 'dev,tst,prd'
+  - name: ServiceConnection
+    displayName: Service Connection
+    type: string
+    default: serviceconnection-peerinsights
+        
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: RemoveInfrastructure
+    displayName: 'Remove infrastructure'
+    jobs:
+    - job: 'RemoveInfrastructure'
+      displayName: 'Remove infrastructure (${{ parameters.Environments }})'
+      steps:
+      - checkout: self
+
+      - task: AzureCLI@2
+        inputs:
+          azureSubscription: ${{ parameters.ServiceConnection }}
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |        
+            fabric_token=$(az account get-access-token --resource https://api.fabric.microsoft.com --query accessToken -o tsv)
+            echo "##vso[task.setvariable variable=fabric_token]$fabric_token"
+        displayName: 'Get MS Entra ID token for Fabric resource'
+
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.x'
+        displayName: 'Use Python 3.x'
+
+      - script: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+        displayName: 'Install Python requirements'
+        workingDirectory: '$(Build.SourcesDirectory)/automation/prerequisites'
+
+      - task: PythonScript@0
+        inputs:
+          scriptSource: 'filePath'
+          scriptPath: '$(Build.SourcesDirectory)/automation/cicd/scripts/solution_setup.py'
+          arguments: '--environments ${{ parameters.Environments }} --fabric_token $(fabric_token) --action delete'
+        displayName: 'Remove Fabric solution infrastructure'

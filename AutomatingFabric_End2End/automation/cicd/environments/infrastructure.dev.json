@@ -1,0 +1,34 @@
+{
+    "generic": {
+        "merge_type": 2,
+        "is_primary" : true,
+        "environment_name": "dev",
+        "permissions": {
+            "Admin": [
+                {"type": "Group", "id": "00000000-0000-0000-0000-000000000000"}
+            ]
+        }
+    },
+    "layers" : 
+    {
+        "merge_type": 2,
+        "Store": { 
+            "items": {
+                "Lakehouse": [
+                    {"item_name": "Sandbox", "connection_name": "YourSolutionName-Sandbox [{environment}]"}
+                ]
+            }
+        },
+        "Prepare": { 
+            "capacity_id": "00000000-0000-0000-0000-000000000000",
+            "git_integration": { 
+                "devops_folder": "/solution/prepare"
+            }
+        },
+        "Ingest": { 
+            "git_integration": { 
+                "devops_folder": "/solution/ingest"
+            }
+        }
+    }
+}

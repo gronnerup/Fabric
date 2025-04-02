@@ -1,0 +1,6 @@
+# requirements.txt
+requests
+azure-identity
+pyodbc
+pyyaml
+pyperclip

@@ -1,0 +1,157 @@
+pr: none
+trigger: none
+
+parameters:
+  - name: environments
+    displayName: Environments
+    type: string
+    default: 'tst,prd'
+
+  - name: layers
+    displayName: Layers
+    type: string
+    default: 'ingest,prepare'
+
+  - name: itemtypes
+    displayName: Item Types in scope
+    type: string
+    default: 'Notebook,DataPipeline'
+
+  - name: ServiceConnection
+    displayName: Service Connection
+    type: string
+    default: serviceconnection-peerinsights
+        
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: Build
+    displayName: 'Build Solution'
+    jobs:
+    - job: 'Build_Solution'
+      displayName: 'Build Solution'
+      steps:
+      - checkout: self
+
+      - task: CopyFiles@2
+        displayName: 'Copy utilities'
+        inputs:
+          SourceFolder: '$(Build.SourcesDirectory)'
+          Contents: |
+            automation/modules/**
+            automation/cicd/environments/**
+            automation/cicd/scripts/solution_release.py
+            automation/prerequisites/requirements.txt
+          TargetFolder: '$(Build.ArtifactStagingDirectory)'
+          OverWrite: true
+            
+      - task: AzureCLI@2
+        inputs:
+          azureSubscription: ${{ parameters.ServiceConnection }}
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |        
+            fabric_token=$(az account get-access-token --resource https://api.fabric.microsoft.com --query accessToken -o tsv)
+            echo "##vso[task.setvariable variable=fabric_token]$fabric_token"
+        displayName: 'Get MS Entra ID token for Fabric resource'
+
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.12'
+        displayName: 'Use Python 3.12'
+
+      - script: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+        displayName: 'Install Python module requirements'
+        workingDirectory: '$(Build.SourcesDirectory)/automation/prerequisites'
+
+      - task: AzureCLI@2
+        displayName: 'Install fabric-cicd and other dependencies'
+        inputs:
+          azureSubscription: ${{ parameters.ServiceConnection }}
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            pip install colorama
+            pip install fabric-cicd
+
+      - script: |
+          python -u solution_build.py --env "dev" --fabric_token $(fabric_token) --layers ${{ parameters.layers }} --item_types ${{ parameters.itemtypes }} --solution_path "$(Build.SourcesDirectory)/solution"
+        displayName: 'Run Fabric release script'
+        workingDirectory: '$(Build.SourcesDirectory)/automation/cicd/scripts'
+
+      - task: CopyFiles@2
+        displayName: 'Build Fabric items'
+        inputs:
+          SourceFolder: '$(Build.SourcesDirectory)/solution'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)'
+          OverWrite: true
+
+      - ${{ each layer in split(parameters.layers, ',') }}:
+        - task: CopyFiles@2
+          displayName: 'Copy parameter file for ${{ upper(layer) }}'
+          inputs:
+            SourceFolder: '$(Build.SourcesDirectory)/automation/cicd/parameters'
+            TargetFolder: '$(Build.ArtifactStagingDirectory)/${{ layer }}'
+            OverWrite: true
+
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Artifact'
+        inputs:
+          ArtifactName: solution
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+ 
+  - ${{ each env in split(parameters.environments, ',') }}:
+    - stage: Release_${{ env }}
+      displayName: 'Release Solution - ${{ upper(env) }}'
+      jobs:
+      - job: Release_Fabric_${{ env }}
+        displayName: 'Release Fabric Items - ${{ upper(env) }}'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+        - task: DownloadBuildArtifacts@0
+          inputs:
+            buildType: 'current'
+            downloadType: 'single'
+            artifactName: 'solution'
+            downloadPath: '$(System.ArtifactsDirectory)'
+          displayName: 'Download artifacts'
+
+        - task: AzureCLI@2
+          inputs:
+            azureSubscription: ${{ parameters.ServiceConnection }}
+            scriptType: 'bash'
+            scriptLocation: 'inlineScript'
+            inlineScript: |        
+              fabric_token=$(az account get-access-token --resource https://api.fabric.microsoft.com --query accessToken -o tsv)
+              echo "##vso[task.setvariable variable=fabric_token]$fabric_token"
+          displayName: 'Get MS Entra ID token for Fabric resource'
+
+        - task: UsePythonVersion@0
+          inputs:
+            versionSpec: '3.12'
+          displayName: 'Use Python 3.12'
+
+        - script: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+          displayName: 'Install Python module requirements'
+          workingDirectory: '$(Pipeline.Workspace)/a/solution/automation/prerequisites'
+
+        - task: AzureCLI@2
+          displayName: 'Install fabric-cicd and other dependencies'
+          inputs:
+            azureSubscription: ${{ parameters.ServiceConnection }}
+            scriptType: 'bash'
+            scriptLocation: 'inlineScript'
+            inlineScript: |
+              pip install colorama
+              pip install fabric-cicd
+
+        - script: |
+            python -u solution_release.py --env ${{ env }} --fabric_token $(fabric_token) --layers ${{ parameters.layers }} --item_types ${{ parameters.itemtypes }} --solution_path "$(Pipeline.Workspace)/a/solution"
+          displayName: 'Run Fabric release script'
+          workingDirectory: '$(Pipeline.Workspace)/a/solution/automation/cicd/scripts'

@@ -1,0 +1,169 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Lookup tables to ingest",
+        "type": "Lookup",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "Get Pipelines",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "sqlReaderQuery": {
+              "value": "SELECT \n    conn.connection_id\n    ,conn.connection_name\n    ,obj.schema_name\n    ,obj.table_name\nFROM \n    [dbo].[source_ingest_conn] conn INNER JOIN \n    [dbo].[source_ingest_obj] obj\n        ON conn.id=obj.connection_id\nWHERE \n    conn.connection_name = '@{pipeline().parameters.connection_name}'\n    AND conn.is_enabled = 1 \n    AND obj.is_enabled=1",
+              "type": "Expression"
+            },
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None"
+          },
+          "firstRowOnly": false,
+          "datasetSettings": {
+            "annotations": [],
+            "type": "AzureSqlTable",
+            "schema": [],
+            "typeProperties": {
+              "database": {
+                "value": "@MetaInitialCatalog",
+                "type": "Expression"
+              }
+            },
+            "externalReferences": {
+              "connection": "@MetaConnectionID"
+            }
+          }
+        }
+      },
+      {
+        "name": "Foreach table in metadata",
+        "type": "ForEach",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "Lookup tables to ingest",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "typeProperties": {
+          "items": {
+            "value": "@activity('Lookup tables to ingest').output.value",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "name": "Ingest table",
+              "type": "InvokePipeline",
+              "state": "Inactive",
+              "onInactiveMarkAs": "Succeeded",
+              "dependsOn": [],
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureOutput": false,
+                "secureInput": false
+              },
+              "typeProperties": {
+                "waitOnCompletion": true,
+                "operationType": "InvokeFabricPipeline",
+                "pipelineId": {
+                  "value": "@string(\n     xpath(\n         xml(\n             json(concat('{\"root\":', activity('Get Pipelines').output, '}'))\n         ),\n         concat('string(/root/value[normalize-space(displayName)=\"',pipeline().parameters.child_pipeline,'\"]/id)')\n     )\n )",
+                  "type": "Expression"
+                },
+                "workspaceId": {
+                  "value": "@pipeline().DataFactory",
+                  "type": "Expression"
+                },
+                "parameters": {
+                  "schema_name": {
+                    "value": "@item().schema_name",
+                    "type": "Expression"
+                  },
+                  "table_name": {
+                    "value": "@item().table_name",
+                    "type": "Expression"
+                  },
+                  "connection_id": {
+                    "value": "@item().connection_id",
+                    "type": "Expression"
+                  },
+                  "connection_name": "@item().connection_name",
+                  "destination_workspace_id": {
+                    "value": "@pipeline().parameters.destination_workspace_id",
+                    "type": "Expression"
+                  },
+                  "destination_lakehouse_id": {
+                    "value": "@pipeline().parameters.destination_lakehouse_id",
+                    "type": "Expression"
+                  }
+                }
+              },
+              "externalReferences": {
+                "connection": "@DataPipelineConnectionID"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "Get Pipelines",
+        "type": "WebActivity",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "method": "GET",
+          "headers": {},
+          "relativeUrl": {
+            "value": "@concat('workspaces/', pipeline().DataFactory, '/items?type=DataPipeline')\n",
+            "type": "Expression"
+          }
+        },
+        "externalReferences": {
+          "connection": "@WebConnectionID"
+        }
+      }
+    ],
+    "parameters": {
+      "child_pipeline": {
+        "type": "string",
+        "defaultValue": "@ChildPipelineName"
+      },
+      "connection_name": {
+        "type": "string"
+      },
+      "destination_workspace_id": {
+        "type": "string",
+        "defaultValue": "@DestinationWorkspaceID"
+      },
+      "destination_lakehouse_id": {
+        "type": "string",
+        "defaultValue": "@DestinationLakehouseID"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+    "name": "YourSolutionName - {layer} [{environment}]",
+    "generic": {
+        "capacity_id": "00000000-0000-0000-0000-000000000000",
+        "permissions": {
+            "Admin": [
+                {"type": "User", "id": "some@user.com"}
+            ]
+        }
+        ,
+        "git_integration": { 
+            "devops_organization": "YourDevOpsOrg",
+            "devops_project": "YourDevOpsProject",
+            "devops_repo": "YourDevOpsRepo",
+            "devops_branch": "main"            
+        },
+        "workspace_icon": "../resources/WSIcon.png"
+    },
+    "layers" : 
+    {
+        "Ingest": { "workspace_icon": "../resources/PeerIcon01.png" },
+        "Store": { 
+            "workspace_icon": "../resources/PeerIcon02.png",
+            "items": {
+                "Lakehouse": [
+                    {"item_name": "Landing"},
+                    {"item_name": "Base"},
+                    {"item_name": "Curated", "connection_name": "YourSolutionName-Curated [{environment}]"}
+                ],
+                "SQLDatabase": [
+                    {
+                        "item_name": "Metadata", 
+                        "connection_name": "YourSolutionName-MetadataDB [{environment}]",
+                        "sql_script": "../resources/Metadata.sql"
+                    }
+                ]
+            }
+        },
+        "Prepare": { "workspace_icon": "../resources/PeerIcon03.png" }
+    }
+}

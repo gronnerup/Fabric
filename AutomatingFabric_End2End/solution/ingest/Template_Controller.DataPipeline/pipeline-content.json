@@ -1,0 +1,78 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Get Pipelines",
+        "type": "WebActivity",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "method": "GET",
+          "headers": {},
+          "relativeUrl": {
+            "value": "@concat('workspaces/', pipeline().DataFactory, '/items?type=DataPipeline')\n",
+            "type": "Expression"
+          }
+        },
+        "externalReferences": {
+          "connection": "@WebConnectionID"
+        }
+      },
+      {
+        "name": "@ParentPipelineName",
+        "type": "InvokePipeline",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "Get Pipelines",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "waitOnCompletion": true,
+          "operationType": "InvokeFabricPipeline",
+          "pipelineId": {
+            "value": "@string(\n     xpath(\n         xml(\n             json(concat('{\"root\":', activity('Get Pipelines').output, '}'))\n         ),\n         concat('string(/root/value[normalize-space(displayName)=\"@ParentPipelineName\"]/id)')\n     )\n )",
+            "type": "Expression"
+          },
+          "workspaceId": {
+            "value": "@pipeline().DataFactory",
+            "type": "Expression"
+          },
+          "parameters": {
+            "destination_workspace_id": "@DestinationWorkspaceID",
+            "destination_lakehouse_id": {
+              "value": "@DestinationLakehouseID",
+              "type": "Expression"
+            },
+            "connection_name": {
+              "value": "@SourceConnectionName",
+              "type": "Expression"
+            }
+          }
+        },
+        "externalReferences": {
+          "connection": "@DataPipelineConnectionID"
+        }
+      }
+    ]
+  }
+}
