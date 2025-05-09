@@ -85,7 +85,7 @@
                                                 "type": "Expression"
                                             },
                                             "body": {
-                                                "value": "@concat(\n    '{\"description\":\"',\n    item().description,\n    ' ',\n    '\"}')",
+                                                "value": "@concat(\n    '{\"description\":\"',\n    item().description,\n    '\"}')",
                                                 "type": "Expression"
                                             }
                                         },
