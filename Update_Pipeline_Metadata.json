@@ -1,0 +1,119 @@
+{
+    "name": "Update_Pipeline_Metadata",
+    "objectId": "d79a426a-9429-4cea-affc-f09268058f12",
+    "properties": {
+        "description": "      ",
+        "activities": [
+            {
+                "name": "Get Data Pipelines",
+                "type": "WebActivity",
+                "state": "Inactive",
+                "onInactiveMarkAs": "Succeeded",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "typeProperties": {
+                    "method": "GET",
+                    "headers": {
+                        "Content-Type": "application/json;charset=utf8"
+                    },
+                    "relativeUrl": {
+                        "value": "@concat(\n    'workspaces/',\n    pipeline().DataFactory,\n    '/dataPipelines')",
+                        "type": "Expression"
+                    }
+                },
+                "externalReferences": {
+                    "connection": "00000000-0000-0000-0000-000000000000"
+                }
+            },
+            {
+                "name": "Foreach Data Pipeline",
+                "description": "Loops through Data Pipelines to update Last Modified By",
+                "type": "ForEach",
+                "state": "Inactive",
+                "onInactiveMarkAs": "Succeeded",
+                "dependsOn": [
+                    {
+                        "activity": "Get Data Pipelines",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "typeProperties": {
+                    "items": {
+                        "value": "@activity('Get Data Pipelines').output.value",
+                        "type": "Expression"
+                    },
+                    "activities": [
+                        {
+                            "name": "Update Data Pipeline check",
+                            "description": "Check if Data Pipeline is subject to update based on DataPipelineList parameter.",
+                            "type": "IfCondition",
+                            "dependsOn": [],
+                            "typeProperties": {
+                                "expression": {
+                                    "value": "@or(\n    or(\n        contains(\n            split(pipeline().parameters.DataPipelineList,','),\n            item().displayName\n        ),\n        empty(pipeline().parameters.DataPipelineList)\n    ),\n    startswith(\n        item().displayName, \n        if(\n            empty(pipeline().parameters.DataPipelineStartsWith),\n            '*****',\n            pipeline().parameters.DataPipelineStartsWith\n        )\n    )\n)",
+                                    "type": "Expression"
+                                },
+                                "ifFalseActivities": [],
+                                "ifTrueActivities": [
+                                    {
+                                        "name": "Update Data Pipeline Description",
+                                        "description": "Update Data Pipeline Description by added a space at the end of the description.",
+                                        "type": "WebActivity",
+                                        "dependsOn": [],
+                                        "policy": {
+                                            "timeout": "0.12:00:00",
+                                            "retry": 0,
+                                            "retryIntervalInSeconds": 30,
+                                            "secureOutput": false,
+                                            "secureInput": false
+                                        },
+                                        "typeProperties": {
+                                            "method": "PATCH",
+                                            "headers": {
+                                                "Content-Type": "application/json;charset=utf8"
+                                            },
+                                            "relativeUrl": {
+                                                "value": "@concat(\n    'workspaces/',\n    pipeline().DataFactory,\n    '/dataPipelines/',\n    item().id)",
+                                                "type": "Expression"
+                                            },
+                                            "body": {
+                                                "value": "@concat(\n    '{\"description\":\"',\n    item().description,\n    ' ',\n    '\"}')",
+                                                "type": "Expression"
+                                            }
+                                        },
+                                        "externalReferences": {
+                                            "connection": "00000000-0000-0000-0000-000000000000"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "parameters": {
+            "DataPipelineList": {
+                "type": "string"
+            },
+            "DataPipelineStartsWith": {
+                "type": "string"
+            }
+        },
+        "variables": {
+            "rwar": {
+                "type": "String"
+            }
+        },
+        "lastModifiedByObjectId": "8c89bb40-2e9d-4ecd-bf49-d96ef882ef8a",
+        "lastPublishTime": "2025-05-09T10:56:17Z"
+    }
+}
