@@ -5,7 +5,7 @@ This folder contains the **Fabric Data Pipeline definition** for a generic utili
 ## 📖 Related Blog Post
 
 Read the full blog post explaining this issue and the rationale behind this solution on **Peer Insights**:  
-👉 [Automating Microsoft Fabric: Extracting Identity Support Data](https://peerinsights.hashnode.dev/automating-microsoft-fabric-extracting-identity-support-data)
+👉 [Who's Calling? Understanding Execution Context in Microsoft Fabric]([https://peerinsights.hashnode.dev/automating-microsoft-fabric-extracting-identity-support-data](https://peerinsights.hashnode.dev/whos-calling))
 
 ## 🛠️ How to Use
 
